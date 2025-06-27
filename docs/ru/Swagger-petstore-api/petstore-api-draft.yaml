@@ -5,7 +5,13 @@ info:
   license:
     name: MIT
 servers:
-  - url: http://petstore.swagger.io/v1
+  - url: http://petstore.swagger.io/v1/
+    description: Production server
+  - url: http://test.petstore.swagger.io/v1
+    description: Test server
+security:
+- api_id: ['X-API-Key'] 
+description: common key
 paths:
   /pets:
     get:
@@ -121,3 +127,9 @@ components:
           format: int32
         message:
           type: string
+    securitySchemes:
+       api_id:
+          type: apiKey
+          description: Input API Key to authorize request. Ask Administrator for the key.
+          name: apiid
+          in: header

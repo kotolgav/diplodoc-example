@@ -127,8 +127,8 @@ components:
           format: int32
         message:
           type: string
-    securitySchemes:
-       api_id:
+  securitySchemes:
+      api_id:
           type: apiKey
           description: Input API Key to authorize request. Ask Administrator for the key.
           name: apiid

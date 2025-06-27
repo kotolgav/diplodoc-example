@@ -9,7 +9,7 @@ servers:
   - url: http://test.petstore.swagger.io/v1
     description: the PetStore test server
 security:
-  api_id: ['X-API-Key']
+  - api_id: ['X-API-Key']
 paths:
   /pets:
     get:

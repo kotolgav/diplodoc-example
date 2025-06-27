@@ -2,4 +2,4 @@
 
 Это тестовое задание по генерации документации на Open API.
 Исполнитель: Ольга Кот.
-Резюме: https://spb.hh.ru/resume/fab0eb5dff00c67ff30039ed1f513442723275
+[Резюме] (https://spb.hh.ru/resume/fab0eb5dff00c67ff30039ed1f513442723275)

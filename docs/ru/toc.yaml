@@ -3,11 +3,10 @@ href: index.yaml
 items: 
   - name: О проекте
     href: about.md
-  - name: Дополнительная страница
-    href: page.md
-  - name: Другая страница
-    href: anotherpage.md
-  - name: Подраздел
+  - name: openapi
     include:
-      path: sub-section/toc.yaml
-      mode: link
+      path: openapi
+      includers:
+        - name: openapi
+          input: petstore-api.yaml
+      mode: link    

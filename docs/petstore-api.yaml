@@ -6,21 +6,22 @@ info:
     name: MIT
 servers:
   - url: http://petstore.swagger.io/v1
+    description: основной сервер Petstore
   - url: http://test.petstore.swagger.io/v1
-    description: the PetStore test server
+    description: Тестовый сервер PetStore 
 security:
   - api_id: ['X-API-Key']
 paths:
   /pets:
     get:
-      summary: 'GET'
+      summary: 'Получить список питомцев'
       operationId: listPets
       tags:
         - pets
       parameters:
         - name: limit
           in: query
-          description: 'Maximim is 100'
+          description: 'Максимальная длина 100 записей'
           required: false
           schema:
             type: integer
@@ -28,10 +29,10 @@ paths:
             format: int32
       responses:
         '200':
-          description: 'OK'
+          description: 'Успешный запрос'
           headers:
             x-next:
-              description: 'Next page'
+              description: 'Следующая страница'
               schema:
                 type: string
           content:
@@ -39,13 +40,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/Pets'
         default:
-          description: 'Error'
+          description: 'Ошибка'
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
     post:
-      summary: 'POST'
+      summary: 'Создать запись питомца'
       operationId: createPets
       tags:
         - pets
@@ -57,16 +58,16 @@ paths:
         required: true
       responses:
         '201':
-          description: 'POST Error'
+          description: 'Запись создана'
         default:
-          description: 'toUpload error'
+          description: 'Ошибка записи'
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
   /pets/{petId}:
     get:
-      summary: 'GET pet ID'
+      summary: 'Получить ID питомца'
       operationId: showPetById
       tags:
         - pets
@@ -74,22 +75,22 @@ paths:
         - name: petId
           in: path
           required: true
-          description: 'Pet ID'
+          description: 'ID питомца'
           schema:
             type: string
       responses:
         '200':
-          description: 'OK'
+          description: 'ID получено успешно'
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Pet'
         '400':
-          description: 'Request is refused'
+          description: 'Запрос отклонен'
         '404':
-          description: 'URI not found'
+          description: 'Не найден URI'
         default:
-          description: 'Error description'
+          description: 'Ошибка запроса'
           content:
             application/json:
               schema:
@@ -127,7 +128,7 @@ components:
           type: string
   securitySchemes:
     api_id:
-      description: API Key for swagger. Ask an admin if you do not have any.
+      description: Введите API Key для swagger. Если у вас нет ключа, обратитесь к администратору. 
       type: apiKey
       name: api-key
       in: header
